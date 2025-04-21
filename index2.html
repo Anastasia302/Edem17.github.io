@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>УФНС России - Главная</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .menu-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .search-box {
+            width: 300px;
+            border: 2px solid #007BFF;
+            border-radius: 25px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .search-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .news-container {
+            margin-top: 30px;
+        }
+        .news-item {
+            background-color: white;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .news-date {
+            font-size: 14px;
+            color: gray;
+        }
+        .sidebar {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+        }
+        .sidebar a {
+            display: block;
+            color: #007BFF;
+            text-decoration: none;
+            padding: 8px;
+        }
+        .sidebar a:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    
+    <div class="sidebar" id="sidebar">
+        <a href="index2.html">Главная страница</a>
+        <a href="profile.html">Аккаунт</a>
+        <a href="calendar.html">Календарь</a>
+        <a href="testing.html">Тестирование</a>
+        <a href="honor_board.html">Доска почета</a>
+        <a href="psychology.html">Психолог</a>
+        <a href="documents.html">Документы</a>
+        <a href="vacation.html">Отпуск</a>
+        <a href="lost_items.html">Потеряшки</a>
+        <a href="health.html">Здоровье</a>
+        <a href="suggestions.html">Предложения</a>
+    </div>
+
+    <h1>УФНС России</h1>
+
+    <div class="search-container">
+        <input type="text" class="search-box" id="searchInput" placeholder="Поиск...">
+        <button class="search-button" onclick="searchNews()">Найти</button>
+    </div>
+
+    <div class="news-container" id="newsContainer">
+        <h2>Новости УФНС</h2>
+        <div class="news-item" data-title="Новая налоговая реформа вступила в силу.">
+            <div class="news-date">01 января 2023</div>
+            <p>Новая налоговая реформа вступила в силу.</p>
+        </div>
+        <div class="news-item" data-title="УФНС запускает новый онлайн-сервис для граждан.">
+            <div class="news-date">15 февраля 2023</div>
+            <p>УФНС запускает новый онлайн-сервис для граждан.</p>
+        </div>
+        <div class="news-item" data-title="Обновлены правила подачи налоговых деклараций.">
+            <div class="news-date">20 марта 2023</div>
+            <p>Обновлены правила подачи налоговых деклараций.</p>
+        </div>
+        <div class="news-item" data-title="Увеличение сроков уплаты налогов для малого бизнеса.">
+            <div class="news-date">10 апреля 2023</div>
+            <p>Увеличение сроков уплаты налогов для малого бизнеса.</p>
+        </div>
+        <div class="news-item" data-title="Запуск новой программы по налоговым льготам.">
+            <div class="news-date">05 мая 2023</div>
+            <p>Запуск новой программы по налоговым льготам.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.style.display = sidebar.style.display === 'none' || sidebar.style.display === '' ? 'block' : 'none';
+        }
+
+        function searchNews() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const newsItems = document.querySelectorAll('.news-item');
+            
+            newsItems.forEach(item => {
+                const title = item.getAttribute('data-title').toLowerCase();
+                item.style.display = title.includes(input) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

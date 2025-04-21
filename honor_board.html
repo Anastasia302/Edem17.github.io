@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доска почета УФНС России</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+          font-family: Arial, sans-serif;  
+          margin :0 ;  
+          padding :20 px ;  
+          background-color :#f4f4f4 ;  
+      }
+      h1 {  
+          text-align:center ;  
+      }
+      .menu-button {  
+          position:absolute ;  
+          top :20 px ;  
+          left :20 px ;  
+          background-color :#007BFF ;  
+          color:white ;  
+          border:none ;  
+          padding :10 px ;  
+          border-radius :5 px ;  
+          cursor:pointer ;  
+          font-size :16 px ;  
+      }
+      .sidebar {  
+          display:none ;  
+          position:absolute ;  
+          top :60 px ;  
+          left :20 px ;  
+          background-color:white ;  
+          border-radius :5 px ;  
+          box-shadow :0 2 px 5 px rgba(0,0,0,0.3) ;  
+          padding :10 px ;  
+      }
+      .sidebar a {  
+          display:block ;  
+          color:#007BFF ;  
+          text-decoration:none ;  
+          padding :8 px ;  
+      }
+      .sidebar a:hover {  
+          background-color :#f0f0f0 ;  
+      }
+      .content {  
+          max-width :800 px ;  
+          margin:auto ;  
+          background-color:white ;  
+          padding :20 px ;  
+          border-radius :5 px ;  
+          box-shadow :0 2 px 5 px rgba(0,0,0,0.1) ;   
+      }
+      table {  
+          width :100 % ;   
+          border-collapse :collapse ;   
+      }
+      th , td {  
+          border :1 px solid #ccc ;   
+          padding :10 px ;   
+          text-align:center ;   
+      }
+      </style>
+      </head>
+
+      <body>
+
+      <button class='menu-button' onclick='toggleMenu()'>☰</button>
+
+      <div class='sidebar' id='sidebar'>
+         <a href='login.html'>Войти в аккаунт</a>   
+         <a href='index.html'>Главная страница</a>   
+         <a href='profile.html'>Аккаунт</a>   
+         <a href='calendar.html'>Календарь</a>   
+         <a href='testing.html'>Тестирование</a>   
+         <a href='honor_board.html'>Доска почета</a>   
+         <a href='psychology.html'>Психолог</a>   
+         <a href='documents.html'>Документы</a>   
+         <a href='vacation.html'>Отпуск</a>   
+         <a href='lost_items.html'>Потеряшки</a>   
+         <a href='health.html'>Здоровье</a>   
+         <a href='suggestions.html'>Предложения</a>   
+     </div>
+
+     <h1>Доска почета УФНС России за месяц:</h1>
+
+     <div class='content'>
+         <!-- Таблица с сотрудниками и их заслугами -->
+         <table>   
+             <tr>   
+                 <th>Имя</th>   
+                 <th>Должность</th>   
+                 <th>Отдел</th>   
+                 <th>Заслуги за месяц</th>   
+             </tr>   
+
+             <!-- Пример записей -->   
+             <tr>   
+                 <td>Иванов Иван Иванович</td>   
+                 <td>Главный инспектор</td>   
+                 <td>Налоговый отдел</td>   
+                 <td>Успешное завершение проверки клиентов.</td>   
+             </tr>   
+
+             <!-- Добавьте больше записей аналогичным образом -->   
+             <!-- Пример записи -->   
+             ...
+             ...
+         </table>   
+     </div>
+
+     <script>
+         function toggleMenu() {
+             const sidebar = document.getElementById('sidebar');
+             sidebar.style.display = sidebar.style.display === 'none' || sidebar.style.display === '' ? 'block' : 'none';
+         }
+     </script>
+
+     </body>
+     </html>
+

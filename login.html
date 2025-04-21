@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в аккаунт УФНС России</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .login-input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px; 
+            border: 1px solid #ccc; 
+        }
+        .login-button { 
+            background-color: #007BFF; 
+            color: white; 
+            border: none; 
+            padding: 10px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            width: calc(100% - 20px);
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Вход в аккаунт УФНС России</h1>
+
+    <div class="login-container">
+        <input type="text" class="login-input" placeholder="Логин" id="username">
+        <input type="password" class="login-input" placeholder="Пароль" id="password">
+        <button class="login-button" onclick="goToProfile()">Войти</button>
+    </div>
+
+    <script>
+        function goToProfile() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                alert('Вы успешно вошли в аккаунт!');
+                window.location.href = 'profile.html'; // Переход на страницу профиля
+            } else {
+                alert('Пожалуйста, введите логин и пароль.');
+            }
+        }
+    </script>
+
+</body>
+</html>

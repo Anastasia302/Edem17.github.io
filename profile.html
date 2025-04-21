@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя УФНС России</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .menu-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .sidebar {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+        }
+        .sidebar a {
+            display: block;
+            color: #007BFF;
+            text-decoration: none;
+            padding: 8px;
+        }
+        .sidebar a:hover {
+            background-color: #f0f0f0;
+        }
+        .profile-container {
+            max-width: 800px;
+            margin:auto; 
+   background-color:white; 
+   padding:20px; 
+   border-radius:5px; 
+   box-shadow:0 2px 5px rgba(0,0,0,0.1);
+   display:flex; 
+   align-items:center; 
+  }
+  .profile-image { 
+   width :150 px; 
+   height :150 px; 
+   border-radius :50%; 
+   margin-right :20 px; 
+  }
+  .profile-info { 
+   flex :1; 
+  }
+  .section-title { 
+   font-weight:bold; 
+   margin-top :10 px; 
+  }
+  .list { 
+   margin :10 px; 
+   padding-left :20 px; 
+  }
+    </style>
+</head>
+<body>
+
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    
+    <div class="sidebar" id="sidebar">
+        <a href="index2.html">Главная страница</a>
+        <a href="profile.html">Аккаунт</a>
+        <a href="calendar.html">Календарь</a>
+        <a href="testing.html">Тестирование</a>
+        <a href="honor_board.html">Доска почета</a>
+        <a href="psychology.html">Психолог</a>
+        <a href="documents.html">Документы</a>
+        <a href="vacation.html">Отпуск</a>
+        <a href="lost_items.html">Потеряшки</a>
+        <a href="health.html">Здоровье</a>
+        <a href="suggestions.html">Предложения</a>
+    </div>
+
+    <h1>Профиль пользователя УФНС России</h1>
+
+    <div class="profile-container">
+        <img src="profile.jpg" alt="Профильное изображение" class="profile-image">
+        
+        <div class="profile-info">
+           <h2>Имя:</h2><p>Иван Иванов</p>
+           <h3 class="section-title">Должность:</h3><p>Главный инспектор</p>
+           <h3 class="section-title">История работы:</h3><p>Работа в УФНС с 2015 года.</p>
+
+           <h3 class="section-title">Выдвинутые предложения:</h3>
+           <ul class="list">
+               <li>Упрощение процесса подачи деклараций.</li>
+               <li>Оптимизация работы с налогоплательщиками.</li>
+               <li>Внедрение новых технологий для проверки налогов.</li>
+           </ul>
+
+           <h3 class="section-title">Участие в мероприятиях:</h3>
+           <ul class="list">
+               <li>Конференция по налоговым вопросам (2022).</li>
+               <li>Семинар по новым технологиям (2023).</li>
+               <li>Вебинар о налоговых льготах (2023).</li>
+           </ul>
+       </div>
+   </div>
+
+   <script>
+       function toggleMenu() {
+           const sidebar = document.getElementById('sidebar');
+           sidebar.style.display = sidebar.style.display === 'none' || sidebar.style.display === '' ? 'block' : 'none';
+       }
+   </script>
+
+</body>
+</html>

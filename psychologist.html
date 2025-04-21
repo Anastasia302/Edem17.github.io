@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Психолог</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh; /* Устанавливаем высоту на весь экран */
+            justify-content: center; /* Центрируем содержимое вертикально */
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: transparent;
+            padding: 10px 0;
+            width: 100%;
+            display: flex; 
+            justify-content: center; 
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .title {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 30px; 
+            border-radius: 50px; 
+            font-size: 64px; 
+            text-align: center;
+            width: calc(75% - 60px); 
+            max-width: 1100px; 
+        }
+
+        .menu-icon {
+            position: absolute;
+            top: 20px; 
+            left: 15px;
+            width: 80px;
+            height: 80px; 
+            background-color: #007BFF; 
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1100;
+        }
+
+        .menu-icon .bar {
+            width: 40px;
+            height: 8px; 
+            background-color: white; 
+            margin: 6px 0; 
+            transition: all 0.3s;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -500px; 
+            width: 500px; 
+            height: 100%;
+            background-color: white;
+            border-right: 1px solid #ccc;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s;
+            z-index: 1000;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar button {
+            display: block;
+            width: 100%;
+            padding: 30px; 
+            border: none;
+            background: none;
+            font-size: 36px; 
+            text-align: left;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .sidebar button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column; /* Расположение кнопок вертикально */
+            align-items: center; /* Центрирование кнопок по горизонтали */
+            justify-content: center; /* Центрирование кнопок по вертикали */
+            height: 100%; /* Занимаем всю высоту контейнера */
+            margin-top: 100px; /* Отступ сверху от заголовка */
+            text-align: center;
+            width: calc(80% - 40px);
+            max-width: 1100px;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 900px; /* Увеличено на 1.5 раза (600px * 1.5) */
+            height: 240px; /* Увеличено на 1.5 раза (160px * 1.5) */
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 120px; /* Увеличен радиус округления для овальной формы */
+            font-size: 72px; /* Увеличен размер шрифта (48px * 1.5) */
+            cursor: pointer;
+            margin: 20px 0; /* Увеличен отступ между кнопками */
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="menu-icon" id="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="title">Психолог</div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <button onclick="window.location.href='index.html'">Главная страница</button>
+        <button onclick="window.location.href='account.html'">Аккаунт</button>
+        <button onclick="window.location.href='calendar.html'">Календарь</button>
+        <button onclick="window.location.href='test.html'">Тест</button>
+        <button onclick="window.location.href='honor_board.html'">Доска почета</button>
+        <button onclick="window.location.href='psychologist.html'">Психолог</button>
+        <button onclick="window.location.href='documents.html'">Документы</button>
+        <button onclick="window.location.href='vacation.html'">Отпуск</button>
+        <button onclick="window.location.href='lost_and_found.html'">Потеряшки</button>
+        <button onclick="window.location.href='health.html'">Здоровье</button>
+        <button onclick="window.location.href='offers.html'">Предложения</button>
+    </div>
+
+    <div class="content">
+        <button class="button" onclick="window.location.href='chatbot.html'">Чат-Бот</button>
+        <button class="button" onclick="window.location.href='psychologist1.html'">Психолог 1</button>
+        <button class="button" onclick="window.location.href='psychologist2.html'">Психолог 2</button>
+    </div>
+
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const sidebar = document.getElementById('sidebar');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('open');
+        }
+
+        function closeSidebar(event) {
+            if (sidebar.classList.contains('open') && !sidebar.contains(event.target) && !menuIcon.contains(event.target)) {
+                sidebar.classList.remove('open');
+            }
+        }
+
+        menuIcon.addEventListener('click', toggleSidebar);
+        document.addEventListener('click', closeSidebar);
+    </script>
+</body>
+</html>

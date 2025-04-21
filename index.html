@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto; /* Позволяет прокручивать содержимое */
+        }
+
+        header {
+            background-color: transparent;
+            padding: 10px; /* Убрать лишние отступы */
+            width: 100%;
+            display: flex; 
+            justify-content: center; /* Центрируем элементы внутри header */
+            position: fixed;
+            top: 0;
+            left: 0; 
+            z-index: 1000;
+        }
+
+        .title {
+            background-color: #007BFF;
+            color: white;
+            padding: 5px 15px; /* Уменьшен отступ для ячейки */
+            border-radius: 50px; 
+            font-size: 1.5rem; /* Уменьшен размер текста для лучшего отображения */
+            text-align: center;
+            max-width: 70%; /* Максимальная ширина для мобильных */
+            white-space: nowrap; /* Избегаем переноса */
+            overflow: hidden; /* Предотвращаем переполнение */
+            text-overflow: ellipsis; /* Добавляем многоточие для длинного текста */
+        }
+
+        .menu-icon {
+            width: 40px; /* Уменьшено размер кнопки */
+            height: 40px;
+            background-color: #007BFF; 
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1100;
+            position: absolute; /* Устанавливаем позиционирование для кнопки */
+            left: 15px; /* Отступ слева */
+            top: 10px; /* Отступ сверху */
+        }
+
+        .menu-icon .bar {
+            width: 28px; /* Уменьшен размер палочек */
+            height: 4px; 
+            background-color: white; 
+            margin: 3px 0; 
+            transition: all 0.3s;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px; /* Уменьшено для лучшей адаптации */
+            width: 300px; 
+            height: 100%;
+            background-color: white;
+            border-right: 1px solid #ccc;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s;
+            z-index: 1000;
+        }
+
+        .sidebar.open {
+            left: 0; 
+        }
+
+        .sidebar button {
+            display: block;
+            width: 100%;
+            padding: 15px; /* Умеренный размер отступа в ячейках */
+            border: none;
+            background: none;
+            font-size: 1.4rem; 
+            text-align: left;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .sidebar button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .content {
+            margin-top: 80px; /* Увеличен отступ, чтобы избежать перекрытия с заголовком */
+            text-align: center;
+            font-size: 1.2rem; 
+            width: calc(90% - 20px); 
+        }
+
+        .news-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .news-title {
+            font-size: 1.1rem; 
+            font-weight: bold;
+        }
+
+        .scroll-button {
+            position: fixed;
+            bottom: 20px; 
+            right: 20px; 
+            width: 50px; 
+            height: 50px; 
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px; 
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 9.52px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .scroll-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="menu-icon" id="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="title">Главная страница</div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <button onclick="window.location.href='index.html'">Главная страница</button>
+        <button onclick="window.location.href='account.html'">Аккаунт</button>
+        <button onclick="window.location.href='calendar.html'">Календарь</button>
+        <button onclick="window.location.href='test.html'">Тест</button>
+        <button onclick="window.location.href='honor_board.html'">Доска почета</button>
+        <button onclick="window.location.href='psychologist.html'">Психолог</button>
+        <button onclick="window.location.href='documents.html'">Документы</button>
+        <button onclick="window.location.href='vacation.html'">Отпуск</button>
+        <button onclick="window.location.href='lost_and_found.html'">Потеряшки</button>
+        <button onclick="window.location.href='health.html'">Здоровье</button>
+        <button onclick="window.location.href='offers.html'">Предложения</button>
+    </div>
+
+    <div class="content">
+        <h2>Новости УФНС России по Тульской области</h2>
+
+        <div class="news-item">
+            <div class="news-date">20 октября 2023</div>
+            <div class="news-title">Увеличение налога на имущество физических лиц.</div>
+            <p>Согласно новым изменениям, налог на имущество физических лиц возрастёт на 5% в следующем году.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">15 октября 2023</div>
+            <div class="news-title">Новые онлайн-сервисы для налогоплательщиков.</div>
+            <p>УФНС Тульской области запустила новые онлайн-сервисы для упрощения подачи деклараций.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">10 октября 2023</div>
+            <div class="news-title">Изменения в сроках подачи налоговых деклараций.</div>
+            <p>Сроки подачи деклараций о доходах физических лиц изменены. Подробности на сайте УФНС.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">5 октября 2023</div>
+            <div class="news-title">Кампании по налоговому контролю в регионе.</div>
+            <p>В Тульской области начнётся кампания по налоговому контролю за малым бизнесом.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">1 октября 2023</div>
+            <div class="news-title">Программа повышения налоговой грамотности.</div>
+            <p>УФНС запускает новую программу по повышению налоговой грамотности населения региона.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">28 сентября 2023</div>
+            <div class="news-title">Обновление сайта УФНС.</div>
+            <p>Официальный сайт УФНС России по Тульской области обновлён для лучшего взаимодействия с налогоплательщиками.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">25 сентября 2023</div>
+            <div class="news-title">Курс по налогообложению для предпринимателей.</div>
+            <p>УФНС проводит бесплатный курс по налогообложению для малых предпринимателей региона.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">20 сентября 2023</div>
+            <div class="news-title">Семинар по налоговым льготам.</div>
+            <p>Проводится семинар, посвящённый вопросам налоговых льгот для компаний и индивидуальных предпринимателей.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">15 сентября 2023</div>
+            <div class="news-title">Анонс налоговой проверки.</div>
+            <p>Уведомление о запланированных проверках налогоплательщиков в регионе в октябре 2023 года.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">10 сентября 2023</div>
+            <div class="news-title">Новая налоговая отчетность.</div>
+            <p>Вводится новая форма налоговой отчетности для юридических лиц с нового года.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">5 сентября 2023</div>
+            <div class="news-title">Информация о налоговых льготах для студентов.</div>
+            <p>УФНС информирует о налоговых льготах для студентов и их родителей.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">1 сентября 2023</div>
+            <div class="news-title">Подготовка к новому налоговому сезону.</div>
+            <p>УФНС России по Тульской области готовится к старту нового налогового сезона с 1 октября.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">28 августа 2023</div>
+            <div class="news-title">Вебинар по вопросам уплаты налогов.</div>
+            <p>УФНС проводит вебинар по вопросам уплаты налогов для физических лиц.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">20 августа 2023</div>
+            <div class="news-title">Изменения в налоговом кодексе.</div>
+            <p>Внесены изменения в налоговый кодекс, которые касаются налогов на землю.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">15 августа 2023</div>
+            <div class="news-title">Налоговые меры поддержки бизнеса.</div>
+            <p>УФНС предлагает меры поддержки для малого и среднего бизнеса в условиях кризиса.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">10 августа 2023</div>
+            <div class="news-title">Информирование граждан о налогах.</div>
+            <p>Запущена акция по информированию граждан о налоговых обязанностях.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">5 августа 2023</div>
+            <div class="news-title">Налогообложение IT-компаний.</div>
+            <p>УФНС проводит анализ налогообложения IT-компаний в регионе.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">1 августа 2023</div>
+            <div class="news-title">Уведомление о новых налогах.</div>
+            <p>Опубликовано уведомление о новых налогах, вступающих в силу с 1 сентября.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">25 июля 2023</div>
+            <div class="news-title">Запуск сервиса электронной отчетности.</div>
+            <p>УФНС запустила новый сервис для упрощения процесса подачи отчетности в электронном виде.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">20 июля 2023</div>
+            <div class="news-title">Кампания по повышению налоговой грамотности.</div>
+            <p>В регионе стартует кампания по повышению налоговой грамотности населения.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">15 июля 2023</div>
+            <div class="news-title">Новые нормы налогообложения для владельцев недвижимости.</div>
+            <p>Утверждены новые нормы налогообложения для физических лиц, владеющих недвижимостью.</p>
+        </div>
+        <div class="news-item">
+            <div class="news-date">10 июля 2023</div>
+            <div class="news-title">Изменения в правилах регистрации бизнеса.</div>
+            <p>Внесены изменения в правила регистрации предприятий и индивидуальных предпринимателей.</p>
+        </div>
+    </div>
+
+    <button class="scroll-button" id="scroll-button">↓</button>
+
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const sidebar = document.getElementById('sidebar');
+        const scrollButton = document.getElementById('scroll-button');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('open');
+        }
+
+        function closeSidebar(event) {
+            if (sidebar.classList.contains('open') && !sidebar.contains(event.target) && !menuIcon.contains(event.target)) {
+                sidebar.classList.remove('open');
+            }
+        }
+
+        menuIcon.addEventListener('click', toggleSidebar);
+        document.addEventListener('click', closeSidebar);
+
+        // Прокрутка к началу или в конец страницы
+        scrollButton.addEventListener('click', () => {
+            const scrollHeight = document.body.scrollHeight;
+            const clientHeight = window.innerHeight;
+            const isAtBottom = window.scrollY + clientHeight >= scrollHeight - 10;
+
+            if (isAtBottom) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                scrollButton.innerHTML = '↓';
+            } else {
+                window.scrollTo({ top: scrollHeight, behavior: 'smooth' });
+                scrollButton.innerHTML = '↑';
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.body.scrollHeight;
+            const clientHeight = window.innerHeight;
+            const isAtBottom = window.scrollY + clientHeight >= scrollHeight - 10;
+
+            if (isAtBottom) {
+                scrollButton.innerHTML = '↑';
+            } else {
+                scrollButton.innerHTML = '↓';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отделы УФНС России</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .menu-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .sidebar {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+        }
+        .sidebar a {
+            display: block;
+            color: #007BFF;
+            text-decoration: none;
+            padding: 8px;
+        }
+        .sidebar a:hover {
+            background-color: #f0f0f0;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    
+    <div class="sidebar" id="sidebar">
+        <a href="login.html">Войти в аккаунт</a>
+        <a href="history.html">История УФНС</a>
+        <a href="departments.html">Отделы УФНС</a>
+    </div>
+
+    <h1>Отделы УФНС России</h1>
+
+    <div class="content">
+        <h2>Основные отделы:</h2>
+        
+        <h3>Отдел налогового контроля</h3>
+        <p>Занимается проверкой соблюдения налогового законодательства и проведением налоговых проверок.</p>
+
+        <h3>Отдел учета и отчетности</h3>
+        <p>Отвечает за ведение учета налогоплательщиков и формирование отчетности.</p>
+
+        <h3>Отдел работы с налогоплательщиками</h3>
+        <p>Обеспечивает взаимодействие с гражданами и организациями по вопросам налогообложения.</p>
+
+        <h3>Отдел информационных технологий</h3>
+        <p>Разрабатывает и поддерживает электронные сервисы для упрощения взаимодействия с налогоплательщиками.</p>
+
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.style.display = sidebar.style.display === 'none' || sidebar.style.display === '' ? 'block' : 'none';
+        }
+    </script>
+
+</body>
+</html>
